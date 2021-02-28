@@ -6,7 +6,7 @@ from collections import Counter
 
 from fim import apriori, fpgrowth, eclat
 
-#%%
+#%% Functions
 
 def avg_len(lst):
     '''
