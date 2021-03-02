@@ -6,7 +6,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-#%%
+#%% Load data
 
 data1 = pd.read_csv('mushrooms.csv')
 target1 = data1['class']
@@ -18,7 +18,7 @@ target2 = data2['quality']
 del data2['quality']
 '''
 
-#%%
+#%% Process data
 
 v = DictVectorizer(sparse=False)
 X1 = v.fit_transform(data1.to_dict('records'))
@@ -29,12 +29,12 @@ X2 = data2
 y2 = (target2 > 5).astype(int)
 '''
 
-#%%
+#%% Select dataset
 
 X = X1
 y = y1
 
-#%%
+#%% Execute
 
 clf = GaussianNB()
 metrics = {'TrainAccuracy': [], 'TrainPrecision': [], 'TrainRecall': [], 'TrainF1': [],
@@ -57,7 +57,7 @@ for split in splits:
     metrics['TrainF1'].append(f1_score(clf.predict(X_train), y_train))
     metrics['TestF1'].append(f1_score(clf.predict(X_test), y_test))
 
-#%%
+#%% Metrics
 
 fig, ax = plt.subplots(2, 2, sharex = True, figsize = (15, 10))
 ax[0, 0].plot(splits, metrics['TrainAccuracy'])
