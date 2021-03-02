@@ -237,7 +237,7 @@ for i in range(1, max(longest_set) + 1):
 ax[1, 1].legend(sol_legend)
 ax[1, 1].set_title('Sets of specific length')
 ax[1, 1].set(xlabel = 'Support, %', ylabel = 'Sets')
-plt.savefig('datat.png')
+#plt.savefig('datax.png')
 plt.show()
 
 #%% Plot times

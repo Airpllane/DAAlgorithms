@@ -15,6 +15,9 @@ target = data['class']
 del data['class']
 '''
 
+'''
+winequality-red.csv - Red Wine Quality
+'''
 data = pd.read_csv('../3. Bayes/winequality-red.csv')
 target = data['quality']
 del data['quality']
