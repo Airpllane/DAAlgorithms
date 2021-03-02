@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import json
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
@@ -8,15 +9,16 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 
 #%% Load data
 
+
 data1 = pd.read_csv('mushrooms.csv')
 target1 = data1['class']
 del data1['class']
 
-'''
+
 data2 = pd.read_csv('winequality-red.csv')
 target2 = data2['quality']
 del data2['quality']
-'''
+
 
 #%% Process data
 
@@ -24,15 +26,15 @@ v = DictVectorizer(sparse=False)
 X1 = v.fit_transform(data1.to_dict('records'))
 y1 = target1.replace({'p': 1, 'e': 0})
 
-'''
+
 X2 = data2
-y2 = (target2 > 5).astype(int)
-'''
+y2 = (target2 > 6).astype(int)
+
 
 #%% Select dataset
 
-X = X1
-y = y1
+X = X2
+y = y2
 
 #%% Execute
 
@@ -86,3 +88,9 @@ ax[1, 1].set(xlabel = 'Train set fraction', ylabel = 'F1')
 
 #plt.savefig('metrics.png')
 plt.show()
+
+#%% Save metrics
+
+with open('metrics_3.json', 'w') as fp:
+    #json.dump(metrics, fp, indent = 4)
+    pass

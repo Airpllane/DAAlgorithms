@@ -1,22 +1,32 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import json
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 #%% Load data
-
+'''
 data = pd.read_csv('../3. Bayes/mushrooms.csv')
 target = data['class']
 del data['class']
+'''
+
+data = pd.read_csv('../3. Bayes/winequality-red.csv')
+target = data['quality']
+del data['quality']
 
 #%% Process data
-
+'''
 v = DictVectorizer(sparse=False)
 X = v.fit_transform(data.to_dict('records'))
 y = target.replace({'p': 1, 'e': 0})
+'''
+
+X = data
+y = (target > 6).astype(int)
 
 #%% Execute, plot trees
 
@@ -43,8 +53,8 @@ for split in splits:
     metrics['TrainF1'].append(f1_score(clf.predict(X_train), y_train))
     metrics['TestF1'].append(f1_score(clf.predict(X_test), y_test))
     
-    #plot_tree(clf, filled = True, feature_names = v.get_feature_names(), ax = ax[int(i / 2), int(i % 2)])
-    plot_tree(clf, filled = True, feature_names = v.get_feature_names(), ax = ax[i])
+    #plot_tree(clf, filled = True, feature_names = v.get_feature_names(), ax = ax[i])
+    plot_tree(clf, filled = True, feature_names = X.columns, ax = ax[i])
 
 #plt.savefig('trees.png')
 plt.show()    
@@ -78,3 +88,9 @@ ax[1, 1].set(xlabel = 'Train set fraction', ylabel = 'F1')
 
 #plt.savefig('metrics.png')
 plt.show()
+
+#%% Save metrics
+
+with open('metrics_4.json', 'w') as fp:
+    #json.dump(metrics, fp, indent = 4)
+    pass
