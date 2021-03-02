@@ -10,12 +10,6 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_sc
 #%% Load data
 
 '''
-data = pd.read_csv('../3. Bayes/mushrooms.csv')
-target = data['class']
-del data['class']
-'''
-
-'''
 winequality-red.csv - Red Wine Quality
 '''
 data = pd.read_csv('../3. Bayes/winequality-red.csv')
@@ -23,12 +17,6 @@ target = data['quality']
 del data['quality']
 
 #%% Process data
-
-'''
-v = DictVectorizer(sparse=False)
-X = v.fit_transform(data.to_dict('records'))
-y = target.replace({'p': 1, 'e': 0})
-'''
 
 X = data
 y = (target > 6).astype(int)
@@ -112,3 +100,9 @@ ax[1, 1].set(xlabel = 'Number of estimators (mixed)', ylabel = 'F1')
 
 #plt.savefig('metrics.png')
 plt.show()
+
+#%% Save metrics
+'''
+with open('metrics_5.json', 'w') as fp:
+    json.dump(metrics, fp, indent = 4)
+'''
