@@ -219,7 +219,7 @@ ax[1, 1].plot(confs, num_rules_under7)
 ax[1, 1].set_title('Number of rules containing <= 7 objects')
 ax[1, 1].set(xlabel = 'Confidence, %', ylabel = 'Items')
 
-plt.savefig('data1.png')
+#plt.savefig('data1.png')
 plt.show()
 
 #%%
