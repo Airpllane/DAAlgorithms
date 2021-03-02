@@ -95,6 +95,7 @@ plt.show()
 
 #%% Save metrics
 
+'''
 with open('metrics_3.json', 'w') as fp:
-    #json.dump(metrics, fp, indent = 4)
-    pass
+    json.dump(metrics, fp, indent = 4)
+'''

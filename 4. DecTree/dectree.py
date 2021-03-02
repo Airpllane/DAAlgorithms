@@ -93,7 +93,7 @@ ax[1, 1].set(xlabel = 'Train set fraction', ylabel = 'F1')
 plt.show()
 
 #%% Save metrics
-
+'''
 with open('metrics_4.json', 'w') as fp:
-    #json.dump(metrics, fp, indent = 4)
-    pass
+    json.dump(metrics, fp, indent = 4)
+'''
