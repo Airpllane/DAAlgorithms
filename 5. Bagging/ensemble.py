@@ -51,8 +51,6 @@ with open('../3. Bayes/metrics_3.json', 'r') as fp:
 with open('../4. Dectree/metrics_4.json', 'r') as fp:
     metrics_4 = json.load(fp)
 
-min_points = min(len(metrics['TestAccuracy']), len(metrics_3['TestAccuracy']), len(metrics_4['TestAccuracy']))
-
 #%% Metrics
 
 fig, ax = plt.subplots(2, 2, sharex = True, figsize = (15, 10))
@@ -62,7 +60,6 @@ ax[0, 0].plot(est_nums[:len(metrics_3['TrainAccuracy'])], metrics_3['TrainAccura
 ax[0, 0].plot(est_nums[:len(metrics_3['TestAccuracy'])], metrics_3['TestAccuracy'][:min(len(est_nums), len(metrics_3['TestAccuracy']))])
 ax[0, 0].plot(est_nums[:len(metrics_4['TrainAccuracy'])], metrics_4['TrainAccuracy'][:min(len(est_nums), len(metrics_4['TrainAccuracy']))])
 ax[0, 0].plot(est_nums[:len(metrics_4['TestAccuracy'])], metrics_4['TestAccuracy'][:min(len(est_nums), len(metrics_4['TestAccuracy']))])
-ax[0, 0].plot(est_nums[:min_points], metrics_4['TestAccuracy'][:min_points])
 ax[0, 0].legend(['Train set', 'Test set', 'Bayes train set', 'Bayes test set', 'DecTree train set', 'DecTree test set'])
 ax[0, 0].set_title('Accuracy')
 ax[0, 0].set(xlabel = 'Number of estimators (mixed)', ylabel = 'Accuracy')
