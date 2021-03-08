@@ -2,11 +2,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from mpl_toolkits.mplot3d import Axes3D
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn_extra.cluster import KMedoids
-from sklearn import datasets
 
 #%% Load data
 '''
@@ -30,7 +28,7 @@ ax.scatter(X[:, 0], X[:, 1], c = y, cmap = plt.cm.Set1, edgecolor = 'k')
 plt.title('Original dataset')
 plt.xlabel('PCA feature 1')
 plt.ylabel('PCA feature 2')
-plt.savefig('Original.png')
+plt.savefig('Data1.png')
 plt.show()
 
 #%% Execute
@@ -49,7 +47,7 @@ for clusternum in clusternums:
     ax[i].set(xlabel = 'PCA feature 1', ylabel = 'PCA feature 2')
 plt.tight_layout()
 
-plt.savefig('Orig_KMeans.png')
+plt.savefig('Data1_KMeans.png')
 plt.show()
 
 #%% Add noise
