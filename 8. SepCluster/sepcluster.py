@@ -7,6 +7,7 @@ from sklearn.decomposition import PCA
 from sklearn_extra.cluster import KMedoids
 
 #%% Load data
+
 '''
 mobiletest.csv - Mobile Price Classification
 '''

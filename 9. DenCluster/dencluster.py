@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 from sklearn.cluster import DBSCAN
 from sklearn.decomposition import PCA
-from sklearn import datasets
 
 #%% Load data 2
 
