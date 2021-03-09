@@ -76,6 +76,13 @@ plt.ylabel('PCA feature 2')
 #plt.savefig('Data1.png')
 plt.show()
 
+#%% Add noise
+
+for row in X:
+    if(np.random.randint(11) < 3):
+        col = np.random.randint(2)
+        row[col] += (np.random.randint(-1, 2) * 0.1 * row[col]) 
+
 #%% Execute
 
 ys = []
@@ -95,5 +102,5 @@ for samplenum in samplenums:
         ax[-1].set_title('For ' + str('%.2f' % samplenum) + ' minpts, ' + str('%.2f' % epsnum) + ' eps')
         ax[-1].set(xlabel = 'PCA feature 1', ylabel = 'PCA feature 2')
 plt.tight_layout()
-plt.savefig('Data1_DBSCAN.png')
+#plt.savefig('Data1_DBSCAN.png')
 plt.show()
