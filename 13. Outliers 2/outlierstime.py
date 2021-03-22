@@ -36,14 +36,13 @@ plt.show()
 #%% Execute, plot
 
 wsize = 24
-k = 1
+k = 2
 
 profile = mp.compute(X.squeeze(), wsize)
 profile = mp.discover.discords(profile, exclusion_zone = wsize, k = k)
-'''
 mp.visualize(profile)
+#plt.savefig('DiscordTime.png')
 plt.show()
-'''
 
 mp_adjusted = np.append(profile['mp'], np.zeros(profile['w'] - 1) + np.nan)
 fig, ax = plt.subplots(1, 1, sharex = True, figsize = (16, 6))
