@@ -36,7 +36,7 @@ plt.plot(X, np.zeros_like(X) + 0, 'x')
 plt.yticks([])
 plt.title('Banknotes')
 plt.xlabel('PCA feature')
-plt.savefig('Original1.png')
+#plt.savefig('Original1.png')
 plt.show()
 
 #%% Execute, plot 1
@@ -59,7 +59,7 @@ for x in X:
     ax[1].set(xlabel = 'PCA feature')
     ax[1].set_yticks([])
 plt.tight_layout()
-plt.savefig('Anomaly1.png')
+#plt.savefig('Anomaly1.png')
 plt.show()
 
 #%% Process data 2
@@ -75,7 +75,7 @@ plt.plot(X, np.zeros_like(X) + 0, 'x')
 plt.yticks([])
 plt.title('Red wine quality')
 plt.xlabel('PCA feature')
-plt.savefig('Original2.png')
+#plt.savefig('Original2.png')
 plt.show()
 
 #%% Execute, plot 2
@@ -98,5 +98,5 @@ for x in X:
     ax[1].set(xlabel = 'PCA feature')
     ax[1].set_yticks([])
 plt.tight_layout()
-plt.savefig('Anomaly2.png')
+#plt.savefig('Anomaly2.png')
 plt.show()
